@@ -12,9 +12,16 @@ namespace Projekt1
 {
     public partial class Form1 : Form
     {
+        Timer zegarTimer = new Timer();
+
         public Form1()
         {
             InitializeComponent();
+
+           
+            zegarTimer.Interval = 1000; 
+            zegarTimer.Tick += ZegarTimer_Tick;
+            zegarTimer.Start();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -26,7 +33,7 @@ namespace Projekt1
         {
             try
             {
-                double input = double.Parse(txtInput.Text); // pobranie wartości od użytkownika
+                double input = double.Parse(txtInput.Text); 
                 string fromUnit = cmbFrom.SelectedItem.ToString();
                 string toUnit = cmbTo.SelectedItem.ToString();
 
@@ -41,7 +48,7 @@ namespace Projekt1
 
         private double ConvertUnits(double value, string fromUnit, string toUnit)
         {
-            // Konwersja do metrów
+           
             double valueInMeters = value;
             switch (fromUnit)
             {
@@ -59,7 +66,7 @@ namespace Projekt1
                     break;
             }
 
-            // Konwersja z metrów do docelowej jednostki
+            
             switch (toUnit)
             {
                 case "metr":
@@ -72,17 +79,48 @@ namespace Projekt1
                     return valueInMeters * 1000;
             }
 
-            return 0; // domyślna wartość, jeśli coś pójdzie nie tak
+            return 0; 
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Dodaj jednostki do ComboBox
+           
             cmbFrom.Items.AddRange(new string[] { "metr", "kilometr", "centymetr", "milimetr" });
             cmbTo.Items.AddRange(new string[] { "metr", "kilometr", "centymetr", "milimetr" });
+
+           
+            StylizujButton(btnConvert);
+            StylizujButton(btnSwap); 
         }
 
-        private void txtInput_TextChanged(object sender, EventArgs e)
+       
+        private void StylizujButton(Button btn)
+        {
+            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatAppearance.BorderSize = 0;
+            btn.BackColor = Color.MediumSlateBlue;
+            btn.ForeColor = Color.White;
+            btn.Font = new Font("Segoe UI", 12, FontStyle.Bold);
+            btn.Height = 40;
+            btn.Width = 120;
+        }
+
+      
+        private void btnSwap_Click(object sender, EventArgs e)
+        {
+            var temp = cmbFrom.SelectedItem;
+            cmbFrom.SelectedItem = cmbTo.SelectedItem;
+            cmbTo.SelectedItem = temp;
+        }
+
+       
+        private void ZegarTimer_Tick(object sender, EventArgs e)
+        {
+            lblTime.Text = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss");
+        }
+    
+
+private void txtInput_TextChanged(object sender, EventArgs e)
         {
 
         }
@@ -108,5 +146,4 @@ namespace Projekt1
         }
     }
 }
-
 

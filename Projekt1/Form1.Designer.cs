@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnSwap = new System.Windows.Forms.Button();
+            this.lblTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -133,11 +135,32 @@
             this.label4.Text = "Kalkulator Jednostek";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // btnSwap
+            // 
+            this.btnSwap.Location = new System.Drawing.Point(65, 310);
+            this.btnSwap.Name = "btnSwap";
+            this.btnSwap.Size = new System.Drawing.Size(174, 100);
+            this.btnSwap.TabIndex = 11;
+            this.btnSwap.Text = "Odwróć jednoski";
+            this.btnSwap.UseVisualStyleBackColor = true;
+            this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(346, 571);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(70, 25);
+            this.lblTime.TabIndex = 12;
+            this.lblTime.Text = "label5";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(610, 1184);
+            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.btnSwap);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -165,6 +188,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnSwap;
+        private System.Windows.Forms.Label lblTime;
     }
 }
 
