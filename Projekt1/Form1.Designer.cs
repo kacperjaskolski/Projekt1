@@ -141,7 +141,7 @@
             this.btnSwap.Name = "btnSwap";
             this.btnSwap.Size = new System.Drawing.Size(174, 100);
             this.btnSwap.TabIndex = 11;
-            this.btnSwap.Text = "Odwróć jednoski";
+            this.btnSwap.Text = "Odwróć jednostki";
             this.btnSwap.UseVisualStyleBackColor = true;
             this.btnSwap.Click += new System.EventHandler(this.btnSwap_Click);
             // 
